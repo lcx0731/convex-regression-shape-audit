@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "convex-regression-shape-audit"
+version = "0.1.0"
+description = "Weighted convex regression on irregular designs with active-set solves and independent references"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["numpy>=2.2,<3"]
+
+[project.optional-dependencies]
+dev = ["scipy>=1.15", "matplotlib>=3.10", "pytest>=8,<9"]
+
+[project.scripts]
+convex-fit = "convex_shape.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = ["error"]
